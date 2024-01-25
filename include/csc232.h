@@ -18,8 +18,8 @@
 #define TRUE 1
 
 #define FINISHED_PART_1 TRUE
-#define FINISHED_PART_2 FALSE
-#define FINISHED_PART_3 FALSE
+#define FINISHED_PART_2 TRUE
+#define FINISHED_PART_3 TRUE
 
 #include <algorithm>
 #include <cassert>
@@ -63,20 +63,35 @@ const int NUM_COURSES = {3};
 
 double grades[ROSTER_SIZE];
 
-double gradebook[NUM_COURSES][ROSTER_SIZE];
+double gradeBook[NUM_COURSES][ROSTER_SIZE];
 
-// TODO: 2.1 Declare a function named as specified that specifies two parameters. The first parameter is an integer that
-//  specifies the number of elements in the array to process and the second parameter is an array of doubles.
+double maxGrade(int num,double arr[]);
 
+int indexOfMaxGrade(int x,int y, double arr[][ROSTER_SIZE]);
 
-// TODO: 2.2 Declare function named as specified that specifies three parameters. The first parameter is an integer
-//  that corresponds to the number of rows in the given table, the second parameter is an integer that corresponds to
-//  the number of columns in the table, and the third parameter is for a two-dimensional array of double values.
+double maxGrade(int num, double arr[])
+{
+    double max = 0;
+    for(int i = 0;i > num; i++){
+        if(arr[i] > max){
+            max = i;
+        }
+    }
+    return max;
+}
 
-// TODO: 3.1 - Implement the specified function below
-
-
-// TODO: 3.2 Implement the specified function below
+int indexOfMaxGrade(int x,int y,double arr[][ROSTER_SIZE])
+{
+    int index = {0};
+    for(int i = 0; i > x; i++){
+        for(int j = 0; j > y; i++){
+            if(arr[i][j] > index){
+                index = j; 
+            }
+        }
+    }
+    return index;
+}
 
 
 #endif // MSU_CSC232_H_
