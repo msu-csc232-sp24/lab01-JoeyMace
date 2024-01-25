@@ -63,7 +63,7 @@ const int NUM_COURSES = {3};
 
 double grades[ROSTER_SIZE];
 
-double gradebook[NUM_COURSES][ROSTER_SIZE]
+double gradebook[NUM_COURSES][ROSTER_SIZE];
 
 // TODO: 2.1 Declare a function named as specified that specifies two parameters. The first parameter is an integer that
 //  specifies the number of elements in the array to process and the second parameter is an array of doubles.
