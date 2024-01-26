@@ -71,25 +71,35 @@ int indexOfMaxGrade(int x,int y, double arr[][ROSTER_SIZE]);
 
 double maxGrade(int num, double arr[])
 {
-    double max = 0;
-    for(int i = 0;i > num; i++){
+    //create variable to store max
+    double max = arr[0];
+    //for loop to iterate through arr
+    for(int i = 0;i < num; i++){
+        //checks if number in arr is bigger than max, replaces if true
         if(arr[i] > max){
-            max = i;
+            max = arr[i];
         }
     }
     return max;
 }
 
-int indexOfMaxGrade(int x,int y,double arr[][ROSTER_SIZE])
+int indexOfMaxGrade(int rows , int col ,double arr[][ROSTER_SIZE])
 {
-    int index = {0};
-    for(int i = 0; i > x; i++){
-        for(int j = 0; j > y; i++){
-            if(arr[i][j] > index){
-                index = j; 
+    //Create variables to store numbers
+    double maxGrade = arr[0][0];
+    int maxRow = {0} , maxCol = {0};
+    //loop to iterate through the arr
+    for(int i = 0; i < rows; i++){
+        for(int j = 0; j < col; j++){
+            if(arr[i][j] > maxGrade){ 
+                maxGrade = arr[i][j];
+                maxRow = i;
+                maxCol = j;
             }
         }
     }
+    //turn index into an integer with this formula
+    int index = maxRow * ROSTER_SIZE + maxCol;
     return index;
 }
 
