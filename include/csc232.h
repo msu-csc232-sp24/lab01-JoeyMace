@@ -17,9 +17,9 @@
 #define FALSE 0
 #define TRUE 1
 
-#define FINISHED_PART_1 FALSE
-#define FINISHED_PART_2 FALSE
-#define FINISHED_PART_3 FALSE
+#define FINISHED_PART_1 TRUE
+#define FINISHED_PART_2 TRUE
+#define FINISHED_PART_3 TRUE
 
 #include <algorithm>
 #include <cassert>
@@ -57,31 +57,48 @@ using std::right;
 using std::setprecision;
 using std::setw;
 
-// TODO: 1.1 Declare a named constant ROSTER_SIZE initialized to the integer value 10.
+const int ROSTER_SIZE = {5};
 
+const int NUM_COURSES = {3}; 
 
-// TODO: 1.3 Declare a named constant NUM_COURSES initialized to the integer value of 3.
+double grades[ROSTER_SIZE];
 
+double gradeBook[NUM_COURSES][ROSTER_SIZE];
 
-// TODO: 1.2 Declare an array named as specified whose size is ROSTER_SIZE that stores floating-point numbers (e.g., double)
+double maxGrade(int num,double arr[]);
 
+int indexOfMaxGrade(int x,int y, double arr[][ROSTER_SIZE]);
 
-// TODO: 1.4 Declare a two-dimensional array as specified that has NUM_COURSES rows and ROSTER_SIZE columns that
-//  stores floating point numbers (e.g., double)
+double maxGrade(int num, double arr[])
+{
+    //create variable to store max
+    double max = arr[0];
+    //for loop to iterate through arr
+    for(int i = 0;i < num; i++){
+        //checks if number in arr is bigger than max, replaces if true
+        if(arr[i] > max){
+            max = arr[i];
+        }
+    }
+    return max;
+}
 
-
-// TODO: 2.1 Declare a function named as specified that specifies two parameters. The first parameter is an integer that
-//  specifies the number of elements in the array to process and the second parameter is an array of doubles.
-
-
-// TODO: 2.2 Declare function named as specified that specifies three parameters. The first parameter is an integer
-//  that corresponds to the number of rows in the given table, the second parameter is an integer that corresponds to
-//  the number of columns in the table, and the third parameter is for a two-dimensional array of double values.
-
-// TODO: 3.1 - Implement the specified function below
-
-
-// TODO: 3.2 Implement the specified function below
+int indexOfMaxGrade(int rows , int col ,double arr[][ROSTER_SIZE])
+{
+    //Create variables to store numbers
+    double maxGrade = arr[0][0];
+    int maxRow = {0};
+    //loop to iterate through the arr
+    for(int i = 0; i < rows; i++){
+        for(int j = 0; j < col; j++){
+            if(arr[i][j] > maxGrade){ 
+                maxGrade = arr[i][j];
+                maxRow = i;
+            }
+        }
+    }
+    return maxRow;
+}
 
 
 #endif // MSU_CSC232_H_
