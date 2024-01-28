@@ -87,20 +87,17 @@ int indexOfMaxGrade(int rows , int col ,double arr[][ROSTER_SIZE])
 {
     //Create variables to store numbers
     double maxGrade = arr[0][0];
-    int maxRow = {0} , maxCol = {0};
+    int maxRow = {0};
     //loop to iterate through the arr
     for(int i = 0; i < rows; i++){
         for(int j = 0; j < col; j++){
             if(arr[i][j] > maxGrade){ 
                 maxGrade = arr[i][j];
                 maxRow = i;
-                maxCol = j;
             }
         }
     }
-    //turn index into an integer with this formula
-    int index = maxRow * ROSTER_SIZE + maxCol;
-    return index;
+    return maxRow;
 }
 
 
